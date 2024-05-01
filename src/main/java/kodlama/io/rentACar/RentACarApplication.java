@@ -42,14 +42,14 @@ public class RentACarApplication {
 		validationproblemDetails.setMessage("VALIDATION.EXCEPTION");
 		
 		ValidationProblemDetails validationProblemDetails;
-		validationProblemDetails.setValidationErrors(new HashMap<String, String>());
+		validationproblemDetails.setValidationErrors(new HashMap<String, String>());
 		
 		
-		for (FieldError fieldError : methodArgumentNotValidException.getBindingResult().getFieldError()) {
-			validationProblemDetails.getValidationErrors().put(fieldError.getField(), fieldError.getDefaultMessage());
+		for (FieldError fieldError : methodArgumentNotValidException.getBindingResult().getFieldErrors()) {
+			validationproblemDetails.getValidationErrors().put(fieldError.getField(), fieldError.getDefaultMessage());
 		}
 		
-		return validationProblemDetails;
+		return validationproblemDetails;
 	}
 	
 	@Bean
